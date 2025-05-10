@@ -10,7 +10,7 @@ import { addTweets, removeTweets, setTweets } from "../store/feedbacksSlice.js";
 import GuestComponent from "../components/GuestPages/GuestComponent.jsx"
 import { TiMessages } from "react-icons/ti";
 import { useLocation } from "react-router-dom";
-import LoginPopup from "../components/Auth/LoginPopup.jsx";
+// import LoginPopup from "../components/Auth/LoginPopup.jsx";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 
@@ -150,11 +150,11 @@ function Feedbacks() {
                         >
                             Add
                         </Button>
-                        <LoginPopup
+                        {/* <LoginPopup
                             ref={LoginPopupDialog}
                             message="Login to Tweet..."
                             route={location.pathname}
-                        />
+                        /> */}
                     </div>
                 </div>
             </form>
