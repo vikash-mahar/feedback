@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import App from "./App.jsx";
 import "./index.css";
 import store from "./store/store.js";
-import Feedbacks from "./pages/Feedback.jsx";
-import Login from "./pages/Login.jsx";
+import Feedback from "./pages/Feedback.jsx"
+import Login from "./pages/Login.jsx"
 import SignUp from "./pages/Signup.jsx";
 
 
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       children: [
           {
               path: "/",
-              element: <Feedbacks />,
+              element: <Feedback />,
           },
           {
               path: "/login",
