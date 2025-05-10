@@ -6,7 +6,7 @@ import "./index.css";
 import store from "./store/store.js";
 import Feedbacks from "./pages/Feedback.jsx";
 import Login from "./pages/Login.jsx";
-import SignUp from "./pages/SignUp.jsx";
+import SignUp from "./pages/Signup.jsx";
 
 
 
