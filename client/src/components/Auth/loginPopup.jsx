@@ -190,4 +190,4 @@ function LoginPopup({ route, message = "Login to continue..." }, ref) {
     );
 }
 
-export default LoginPopup;
+export default React.forwardRef(LoginPopup);
