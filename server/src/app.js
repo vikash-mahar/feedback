@@ -5,8 +5,7 @@ import cookieParser from 'cookie-parser'
 const app=express()
 
 app.use(cors({
-    origin:["http://localhost:5173",
-        "https://feedback-f65j.onrender.com"],
+    origin:["https://feedback-f65j.onrender.com"],
     methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
     credentials:true
 }))
