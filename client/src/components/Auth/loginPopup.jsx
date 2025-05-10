@@ -1,14 +1,14 @@
 import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { setUser } from "../../store/authSlice";
+import { setUser } from "../../store/authSlice.js";
 import { Link, useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { toast } from "react-toastify";
 import axiosInstance from "../../utils/axios.helper.js";
-import Logo from "../Logo";
-import Input from "../Input";
-import Button from "../Button";
+import Logo from "../Logo.jsx";
+import Input from "../Input.jsx";
+import Button from "../Button.jsx";
 import { icons } from "../../assets/Icons.jsx";
 import { IoClose } from "react-icons/io5";
 
