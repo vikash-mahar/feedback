@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { GrLogin } from "react-icons/gr";
-import LoginPopup from "../Auth/LoginPopup";
+// import LoginPopup from "../Auth/LoginPopup";
 
 function GuestComponent({
     icon,
@@ -26,10 +26,10 @@ function GuestComponent({
                     <p>{subtitle}</p>
                     {guest && (
                         <>
-                            <LoginPopup
+                            {/* <LoginPopup
                                 ref={LoginPopupDialog}
                                 route={route || ""}
-                            />
+                            /> */}
                             <button
                                 onClick={() => LoginPopupDialog.current.open()}
                                 className="mt-4 inline-flex items-center gap-x-2 hover:bg-[#1e424b] bg-[#004D61] rounded  hover:border-dotted border border-transparent hover:border-white px-3 py-2 font-semibold text-black"
