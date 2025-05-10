@@ -51,7 +51,6 @@ function Feedbacks() {
             }
 
             toast.success(response.data.message)
-            console.log(response);
 
         } catch (error) {
             console.log("Error while fetching tweets", error);
@@ -104,14 +103,13 @@ function Feedbacks() {
 
     return (
         <>
-       
             <form
                 onSubmit={handleSubmit(addTweet)}
                 className="mt-4 border-1 border-gray-400 pb-2 rounded-lg mx-4"
             >
                 <textarea
                     className="mb-2 w-full resize-none border-none bg-transparent px-3 pt-2 outline-none"
-                    placeholder="Write a Feedback"
+                    placeholder="Write a tweet"
                     rows={"2"}
                     required
                     {...register("content", {
@@ -137,7 +135,7 @@ function Feedbacks() {
                     </div>
                     <div className="flex items-center gap-x-3">
                         <Button
-                            className=" hover:bg-slate-800 rounded-xl"
+                            className="rounded-lg hover:bg-slate-800 rounded-xl"
                             bgColor=""
                             onClick={() => reset()}
                         >
@@ -158,7 +156,7 @@ function Feedbacks() {
                     </div>
                 </div>
             </form>
-            <div className="mt-6 border-b  border-gray-400"></div>
+            <div className="mt-6 border-b border-gray-400"></div>
             {tweets?.length > 0 ? (
                 <InfiniteScroll
                     dataLength={tweets.length}
@@ -171,12 +169,11 @@ function Feedbacks() {
                     }
                     scrollableTarget="scrollableDiv"
                 >
-                    <div className="py-4 px-4  text-gray-300 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <ul className="py-4 px-4 text-gray-300">
                         {tweets.map((tweet, i) => (
-                        <Tweet key={i} tweet={tweet} page={true} />
+                            <Tweet key={i} tweet={tweet} page={true} />
                         ))}
-                    </div>
-
+                    </ul>
                 </InfiniteScroll>
             ) : (
                 <GuestComponent
@@ -185,8 +182,8 @@ function Feedbacks() {
                             <TiMessages className="w-32 h-32" />
                         </span>
                     }
-                    title="Empty Feedback"
-                    subtitle="There are no feedback right now. Be the first one to write a feedback."
+                    title="Empty Tweets"
+                    subtitle="There are no tweets right now. Be the first one to write a tweet."
                     guest={false}
                 />
             )}
