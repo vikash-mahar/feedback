@@ -10,6 +10,7 @@ import { addTweets, removeTweets, setTweets } from "../store/feedbacksSlice.js";
 import GuestComponent from "../components/GuestPages/GuestComponent.jsx"
 import { TiMessages } from "react-icons/ti";
 import { useLocation } from "react-router-dom";
+import LoginPopup from "../components/Auth/LoginPopup.jsx";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 
@@ -50,6 +51,7 @@ function Feedbacks() {
             }
 
             toast.success(response.data.message)
+            console.log(response);
 
         } catch (error) {
             console.log("Error while fetching tweets", error);
@@ -102,13 +104,14 @@ function Feedbacks() {
 
     return (
         <>
+       
             <form
                 onSubmit={handleSubmit(addTweet)}
                 className="mt-4 border-1 border-gray-400 pb-2 rounded-lg mx-4"
             >
                 <textarea
                     className="mb-2 w-full resize-none border-none bg-transparent px-3 pt-2 outline-none"
-                    placeholder="Write a tweet"
+                    placeholder="Write a Feedback"
                     rows={"2"}
                     required
                     {...register("content", {
@@ -147,15 +150,15 @@ function Feedbacks() {
                         >
                             Add
                         </Button>
-                        {/* <LoginPopup
+                        <LoginPopup
                             ref={LoginPopupDialog}
                             message="Login to Tweet..."
                             route={location.pathname}
-                        /> */}
+                        />
                     </div>
                 </div>
             </form>
-            <div className="mt-6 border-b border-gray-400"></div>
+            <div className="mt-6 border-b  border-gray-400"></div>
             {tweets?.length > 0 ? (
                 <InfiniteScroll
                     dataLength={tweets.length}
@@ -168,11 +171,12 @@ function Feedbacks() {
                     }
                     scrollableTarget="scrollableDiv"
                 >
-                    <ul className="py-4 px-4 text-gray-300">
+                    <div className="py-4 px-4  text-gray-300 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {tweets.map((tweet, i) => (
-                            <Tweet key={i} tweet={tweet} page={true} />
+                        <Tweet key={i} tweet={tweet} page={true} />
                         ))}
-                    </ul>
+                    </div>
+
                 </InfiniteScroll>
             ) : (
                 <GuestComponent
@@ -181,8 +185,8 @@ function Feedbacks() {
                             <TiMessages className="w-32 h-32" />
                         </span>
                     }
-                    title="Empty Tweets"
-                    subtitle="There are no tweets right now. Be the first one to write a tweet."
+                    title="Empty Feedback"
+                    subtitle="There are no feedback right now. Be the first one to write a feedback."
                     guest={false}
                 />
             )}
